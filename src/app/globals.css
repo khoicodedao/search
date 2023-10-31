@@ -4,9 +4,19 @@
 
 body {
   overflow-y: scroll;
+  background-color: rgba(185, 187, 192, 0.658);
 }
 .ant-input-group-addon button {
   -webkit-appearance: button;
   background-color: gray;
   background-image: none;
+}
+
+.ant-card-head-title {
+  color: rgb(217 119 6);
+}
+
+.ant-spin-container {
+  overflow-y: scroll;
+  max-height: 66vh;
 }
