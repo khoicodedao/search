@@ -46,8 +46,8 @@ export default function Home() {
         />
       </div>
 
-      <div className="pt-4 ">
-        <Card title="Các văn bản mới" size="default" style={{ width: 450 }}>
+      <div className="pt-4 " style={{ width: "90%" }}>
+        <Card title="Các văn bản mới">
           <List
             itemLayout="horizontal"
             dataSource={data}
