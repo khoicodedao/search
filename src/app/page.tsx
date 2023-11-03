@@ -64,7 +64,6 @@ export default function Home() {
     SetSearch(res);
   };
   const onChange = (e: any) => {
-    console.log(e?.target.value);
     if (e?.target.value.length > 0) {
       setIsSearching(true);
     } else {
@@ -115,9 +114,9 @@ export default function Home() {
               renderItem={(item, index) => (
                 <List.Item>
                   <List.Item.Meta
-                    title={<a href="#">{item[1].content.split("@")[0]}</a>}
+                    title={<a href="#">{item[1]?.content.split("@")[0]}</a>}
                     description={
-                      <Typography>{item[0].highlightedText}</Typography>
+                      <Typography>{item[0]?.highlightedText}</Typography>
                     }
                   />
                 </List.Item>
