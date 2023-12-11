@@ -7,6 +7,7 @@ import { Typography } from "antd";
 import axios from "axios";
 import Link from "next/link";
 import { Button, Modal, Space } from "antd";
+
 type TDoc = {
   _index: string;
   _type: string;
@@ -48,7 +49,7 @@ const searchData = async (query: string) => {
     return response.data;
   } catch (error) {}
 };
-const { Paragraph } = Typography;
+const { Paragraph, Text } = Typography;
 export default function Home() {
   const [data, setData] = useState<TDoc[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
@@ -151,10 +152,11 @@ export default function Home() {
                               <>
                                 <div style={{ display: "flex" }}>
                                   <CancelBtn />
-                                  <OkBtn />
                                 </div>
 
-                                {item["_source"]?.content?.split("@")[1]}
+                                <Paragraph>
+                                  {item["_source"]?.content?.split("@")[1]}
+                                </Paragraph>
                               </>
                             ),
                           });
@@ -191,8 +193,27 @@ export default function Home() {
                       <Link
                         className="ant-card-head-title uppercase font-bold max-w-full"
                         href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          console.log(item);
+                          Modal.confirm({
+                            title: "Nội dung chính",
+                            content: "",
+                            footer: (_, { OkBtn, CancelBtn }) => (
+                              <>
+                                <div style={{ display: "flex" }}>
+                                  <CancelBtn />
+                                </div>
+
+                                <Paragraph>
+                                  {item[1]?.content?.split("@")[1]}
+                                </Paragraph>
+                              </>
+                            ),
+                          });
+                        }}
                       >
-                        {item[1]?.content.split("@")[0]}
+                        <Paragraph>{item[1]?.content.split("@")[0]}</Paragraph>
                       </Link>
                     }
                     description={
