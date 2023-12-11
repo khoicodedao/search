@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Typography } from "antd";
 import axios from "axios";
 import Link from "next/link";
-import { Button, Modal, Space } from "antd";
+import { Modal, Drawer } from "antd";
 
 type TDoc = {
   _index: string;
@@ -54,19 +54,7 @@ export default function Home() {
   const [data, setData] = useState<TDoc[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [search, SetSearch] = useState<TSearch>();
-  //============open detail=============
   const [open, setOpen] = useState(false);
-  const showModal = () => {
-    setOpen(true);
-  };
-  const handleOk = () => {
-    setOpen(false);
-  };
-
-  const handleCancel = () => {
-    setOpen(false);
-  };
-  //==============end=====================
   useEffect(() => {
     fetch("/api/home")
       .then((response) => response.json())
@@ -108,7 +96,13 @@ export default function Home() {
       </table>
     );
   };
+  const showDrawer = () => {
+    setOpen(true);
+  };
 
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
     <main className="flex  flex-col items-center">
       <div style={{ width: "90%" }}>
@@ -154,9 +148,11 @@ export default function Home() {
                                   <CancelBtn />
                                 </div>
 
-                                <Paragraph>
+                                <textarea
+                                  style={{ width: "100%", height: "54vh" }}
+                                >
                                   {item["_source"]?.content?.split("@")[1]}
-                                </Paragraph>
+                                </textarea>
                               </>
                             ),
                           });
@@ -205,15 +201,17 @@ export default function Home() {
                                   <CancelBtn />
                                 </div>
 
-                                <Paragraph>
+                                <textarea
+                                  style={{ width: "100%", height: "54vh" }}
+                                >
                                   {item[1]?.content?.split("@")[1]}
-                                </Paragraph>
+                                </textarea>
                               </>
                             ),
                           });
                         }}
                       >
-                        <Paragraph>{item[1]?.content.split("@")[0]}</Paragraph>
+                        {item[1]?.content.split("@")[0]}
                       </Link>
                     }
                     description={
