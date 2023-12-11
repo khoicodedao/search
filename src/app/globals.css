@@ -13,10 +13,14 @@ body {
 }
 
 .ant-card-head-title {
-  color: rgb(217 119 6);
+  color: rgb(26 86 219) !important;
 }
 
 .ant-spin-container {
   overflow-y: scroll;
   max-height: 66vh;
+}
+em {
+  color: #f59e0b;
+  font-weight: 700;
 }
