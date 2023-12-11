@@ -144,7 +144,10 @@ export default function Home() {
                             content: "",
                             footer: (_, { OkBtn, CancelBtn }) => (
                               <>
-                                <div style={{ display: "flex" }}>
+                                <div
+                                  className="mb-2"
+                                  style={{ display: "flex" }}
+                                >
                                   <CancelBtn />
                                 </div>
 
@@ -197,7 +200,10 @@ export default function Home() {
                             content: "",
                             footer: (_, { OkBtn, CancelBtn }) => (
                               <>
-                                <div style={{ display: "flex" }}>
+                                <div
+                                  className="mb-2"
+                                  style={{ display: "flex" }}
+                                >
                                   <CancelBtn />
                                 </div>
 
