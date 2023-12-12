@@ -14,7 +14,7 @@ export default function Chat() {
         title="External Content"
         width="100%"
         height="100%"
-        src="http://phimtienhiep.com/help/"
+        src="https://phimtienhiep.com/help/"
       />
     </div>
   );
